@@ -19,4 +19,4 @@ RUN curl -sSL -o dotnet.tar.gz https://aka.ms/dotnet-sdk-2.0.0-preview2-linux-x6
 RUN mkdir -p /opt/dotnet && tar zxf dotnet.tar.gz -C /opt/dotnet && rm dotnet.tar.gz
 RUN ln -s /opt/dotnet/dotnet /usr/local/bin
 RUN dotnet new -l
-RUN dotnet info
+RUN dotnet --info
