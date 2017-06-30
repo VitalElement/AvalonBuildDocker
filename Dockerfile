@@ -18,4 +18,5 @@ RUN apt-get update && apt-get install -y git libcurl3 lib32z1 lib32ncurses5 libu
 RUN curl -sSL -o dotnet.tar.gz https://aka.ms/dotnet-sdk-2.0.0-preview2-linux-x64-bin
 RUN mkdir -p /opt/dotnet && tar zxf dotnet.tar.gz -C /opt/dotnet && rm dotnet.tar.gz
 RUN ln -s /opt/dotnet/dotnet /usr/local/bin
-RUN dotnet --info
+RUN dotnet new -l
+RUN dotnet info
