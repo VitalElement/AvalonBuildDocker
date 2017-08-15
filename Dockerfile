@@ -21,3 +21,7 @@ RUN apt-get update && apt-get install -y dotnet-sdk-2.0.0
 
 RUN dotnet new -l
 RUN dotnet --info
+
+RUN echo 'root:password' | chpasswd
+RUN dpkg --add-architecture i386 && apt-get update
+RUN apt-get install -y openssh-server nano libc6:i386 libncurses5:i386 libstdc++6:i386
