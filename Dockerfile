@@ -25,3 +25,4 @@ RUN dotnet --info
 RUN echo 'root:password' | chpasswd
 RUN dpkg --add-architecture i386 && apt-get update
 RUN apt-get install -y openssh-server nano libc6:i386 libncurses5:i386 libstdc++6:i386
+RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
