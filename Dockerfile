@@ -1,4 +1,4 @@
-FROM ubuntu:zesty
+FROM ubuntu:17.10
 
 # Install mono
 RUN apt-get update \
@@ -16,8 +16,8 @@ RUN echo "deb http://download.mono-project.com/repo/ubuntu xenial main" > /etc/a
 RUN apt-get update && apt-get install -y git apt-transport-https ca-certificates build-essential p7zip-full vim nano
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 RUN mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-RUN sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-zesty-prod zesty main" > /etc/apt/sources.list.d/dotnetdev.list'
-RUN apt-get update && apt-get install -y dotnet-sdk-2.0.0
+RUN sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-artful-prod artful main" > /etc/apt/sources.list.d/dotnetdev.list'
+RUN apt-get update && apt-get install -y dotnet-sdk-2.1.4
 
 RUN dotnet new -l
 RUN dotnet --info
